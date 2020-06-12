@@ -21,5 +21,14 @@ python test_pap_corpus.py
 ## Small test with wikipedia API 
 
 ```bash
-python pap_media.py
+python pap_media.py {search-term}
+```
+
+When you run this for instance with `bina` as term; the result will be:
+
+```python
+python pap_media.py bina
+I found Biná which is a Animalnan
+bina is known on wikidata with the code Q215887
+Biná is called 'witstaarthert' in dutch
 ```
