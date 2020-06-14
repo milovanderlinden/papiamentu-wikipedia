@@ -11,7 +11,7 @@ id2word = corpora.Dictionary.load_from_text('corpus/wiki_pap_wordids.txt.bz2')
 mm = corpora.MmCorpus('corpus/wiki_pap_bow.mm')
 
 # extract 100 LDA topics, using 1 pass and updating once every 1 chunk (10,000 documents)
-lda = gensim.models.ldamodel.LdaModel(corpus=mm, id2word=id2word, num_topics=100, update_every=0, passes=20)
+lda = gensim.models.ldamodel.LdaModel(corpus=mm, id2word=id2word, num_topics=100, update_every=0, passes=2)
 # print the most contributing words for 20 randomly selected topics
 lda.print_topics(20)
 
@@ -19,7 +19,7 @@ lda.print_topics(20)
 with open("corpus/wiki_pap_bow.mm.metadata.cpickle", 'rb') as meta_file:
     docno2metadata = pickle.load(meta_file)
 
-doc_num = 0
+doc_num = 13
 print("Title: {}".format(docno2metadata[doc_num][1]))
 
 vec = mm[doc_num] # get tf-idf vector
